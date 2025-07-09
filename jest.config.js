@@ -12,8 +12,8 @@ const config = {
     // ],
 
     '@config/(.*)$': '<rootDir>/config/$1',
-    '@testApi/(.*)$': '<rootDir>/test/api/$1',
-    '@srcApi/(.*)$': '<rootDir>/src/api/$1',
+    '@testApi/(.*)$': '<rootDir>/__test__/api/$1',
+    '@srcApi/(.*)$': '<rootDir>/src/api-helper/$1',
     '@dataTest/(.*)$': '<rootDir>/data-test/$1',
   },
   reporters: [

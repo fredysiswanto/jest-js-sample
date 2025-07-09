@@ -72,7 +72,7 @@ program
         tasks.push(
           generateFile(
             path.join(templatesDir, 'api.txt'),
-            path.join(__dirname, '../src/api', `${name}.js`),
+            path.join(__dirname, '../src/api-helper', `${name}.js`),
             variables
           )
         );
@@ -82,7 +82,7 @@ program
         tasks.push(
           generateFile(
             path.join(templatesDir, 'test.txt'),
-            path.join(__dirname, '../test/api', `${name}.test.js`),
+            path.join(__dirname, '../__test__/api', `${name}.test.js`),
             variables
           )
         );

@@ -42,8 +42,8 @@ pnpm run test
 node scripts/cli <file-name or api-name> --test --api
 ```
 
-- `--test`: Generate a sample testing file (placed under `test/`)
-- `--api`: Generate an API helper function file (placed under `src/api/`)
+- `--test`: Generate a sample testing file (placed under `__test__/`)
+- `--api`: Generate an API helper function file (placed under `src/api-helper/`)
 
 Example:
 
@@ -53,8 +53,8 @@ node scripts/cli product --test --api
 
 Will create:
 
-- `test/product.test.js`
-- `src/api/product.js`
+- `__test__/product.test.js`
+- `src/api-helper/product.js`
 
 Example Test Report:
 
