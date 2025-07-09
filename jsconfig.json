@@ -6,8 +6,8 @@
     "paths": {
       "@root": ["./"],
       "@config": ["config"],
-      "@testApi": ["test/api/"],
-      "@srcApi": ["src/api/"],
+      "@testApi": ["__test__/api/"],
+      "@srcApi": ["src/api-helper"],
       "@dataTest": ["data-test"]
     }
   }
