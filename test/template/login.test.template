@@ -1,0 +1,14 @@
+const { login } = require('@srcApi/auth.js');
+
+describe('Auth', () => {
+  test('Successful Login', async () => {
+    const response = await login('mor_2314', '83r5^_');
+    expect(response.body.token).toBe('eyJhbGciOiJIUzI1NiIsInR');
+    expect(response.status).toBe(200);
+    console.log(response);
+  });
+  test('Unsucces Login', async () => {
+    const response = await login('eve.holt@reqres.in', '');
+    expect(response.body.error).toBe('Missing password');
+  });
+});
