@@ -1,4 +1,3 @@
-//@ts-check
 const testData = require('@dataTest/testData.json');
 const { getTokenLogin } = require('@srcApi/store/auth.js');
 const {

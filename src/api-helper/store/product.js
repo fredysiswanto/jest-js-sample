@@ -1,3 +1,6 @@
+// this file sample generate from cli
+// node scripts/cli product --api
+
 const request = require('supertest');
 let { BASE_URL } = require('@config/config');
 const { prepareRequest, handleResponse } = require('@config/helper');

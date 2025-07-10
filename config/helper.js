@@ -1,5 +1,5 @@
 const { HEADERS } = require('./config');
-// Fungsi untuk menggabungkan header dan menangani debugging
+// Function to marge header and handel debugging before call api
 function prepareRequest({ reqHeader = {}, debug = false }) {
   const headers = { ...HEADERS, ...reqHeader };
   if (debug) {
@@ -8,7 +8,7 @@ function prepareRequest({ reqHeader = {}, debug = false }) {
   return headers;
 }
 
-// Fungsi untuk menangani response dan debugging
+// Function to handle debugging after receiving response from api
 function handleResponse(response, debug) {
   if (debug) {
     console.log({ body: response.body, status: response.status });

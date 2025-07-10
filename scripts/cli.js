@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const { program } = require('commander');
 
-// Fungsi untuk generate variabel otomatis
+// function generate variabel
 const generateVariables = (name) => {
   const vars = [
     { __VAR0__: name },
@@ -12,8 +12,8 @@ const generateVariables = (name) => {
   ];
 
   if (name.includes('/')) {
-    const holderData = name.split('/').at(-1); // Ambil bagian terakhir
-    const folderPath = name.split('/').slice(0, -1).join('/'); // Ambil path folder
+    const holderData = name.split('/').at(-1);
+    const folderPath = name.split('/').slice(0, -1).join('/');
 
     vars[0].__VAR0__ = holderData;
     vars[1].__VAR1__ = holderData[0].toUpperCase() + holderData.slice(1);
@@ -23,7 +23,7 @@ const generateVariables = (name) => {
   return Object.assign({}, ...vars);
 };
 
-// Fungsi untuk replace template
+// function replace template
 const replaceTemplate = (template, variables) => {
   return Object.keys(variables).reduce((result, key) => {
     const regex = new RegExp(key, 'g');
@@ -31,7 +31,7 @@ const replaceTemplate = (template, variables) => {
   }, template);
 };
 
-// Fungsi utama untuk generate file
+// main function generate file
 const generateFile = async (templatePath, outputPath, variables, force) => {
   try {
     const fileExists = await fs.pathExists(outputPath);
@@ -61,7 +61,7 @@ program
   .action(async (name, options) => {
     const { api, test } = options;
 
-    // Generate variabel otomatis
+    // Generate variabel
     const variables = generateVariables(name);
 
     try {
