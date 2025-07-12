@@ -30,4 +30,4 @@ jobs:
         run: pnpm install
 
       - name: Run Jest tests
-        run: pnpm test --runInBand --verbose
+        run: pnpm exec jest --runInBand --verbose
