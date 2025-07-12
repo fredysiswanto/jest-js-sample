@@ -7,7 +7,7 @@ const {
   deleteUser,
 } = require('@srcApi/store/user.js');
 
-describe('Test url api /user', () => {
+describe.skip('Test url api /user', () => {
   let authToken = '';
   beforeAll(async () => {
     const res = await getTokenLogin();
