@@ -12,10 +12,11 @@ async function products({
   reqBody = {},
   params = '',
   debug = false,
+  logger = false,
 }) {
-  const headers = prepareRequest({ reqHeader, debug });
+  const headers = prepareRequest({ reqHeader, debug, logger });
   const response = await request(BASE_URL).get(`${url}${params}`).set(headers);
-  return handleResponse(response, debug);
+  return handleResponse(response, debug, logger);
 }
 
 // POST

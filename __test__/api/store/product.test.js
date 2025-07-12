@@ -18,12 +18,26 @@ describe('Test url api /product', () => {
       reqHeader: { token: authToken },
       reqBody: {},
       params: '',
-      // debug: true,
     });
     const { body } = response;
     expect(response.status).toBe(200);
     expect(body[0].id).toBe(1);
     expect(body[0]).toContainKeys(['id', 'title', 'price']);
+
+    // expect(body.xxx).toBe('xxx');
+  });
+  test('Get detail product', async () => {
+    const response = await products({
+      reqHeader: { token: authToken },
+      reqBody: {},
+      params: '/7',
+      debug: true,
+      logger: true,
+    });
+    const { body } = response;
+    expect(response.status).toBe(200);
+    expect(body.id).toBe(7);
+    expect(body).toContainKeys(['id', 'title', 'price']);
 
     // expect(body.xxx).toBe('xxx');
   });
@@ -38,7 +52,6 @@ describe('Test url api /product', () => {
     const response = await addProduct({
       reqHeader: { token: authToken },
       reqBody: sendBody,
-      // debug: true,
     });
     const { body } = response;
     expect(response.status).toBe(200);
