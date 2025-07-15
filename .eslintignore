@@ -1,0 +1,10 @@
+node_modules/
+reports/
+coverage/
+dist/
+build/
+*.min.js
+package-lock.json
+pnpm-lock.yaml
+.nyc_output/
+jest-html-reporters-attach/

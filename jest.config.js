@@ -1,5 +1,5 @@
 /** @type {import('jest').Config} */
-require('module-alias/register');
+require('module-alias/register')
 const config = {
   moduleNameMapper: {
     // '^image![a-zA-Z0-9$_-]+$': 'GlobalImageStub',
@@ -14,7 +14,7 @@ const config = {
     '@config/(.*)$': '<rootDir>/config/$1',
     '@testApi/(.*)$': '<rootDir>/__test__/api/$1',
     '@srcApi/(.*)$': '<rootDir>/src/api-helper/$1',
-    '@dataTest/(.*)$': '<rootDir>/data-test/$1',
+    '@dataTest/(.*)$': '<rootDir>/data-test/$1'
   },
   reporters: [
     'default',
@@ -24,14 +24,14 @@ const config = {
         publicPath: './reports',
         filename: 'report.html',
         openReport: false,
-        includeConsoleLog: false,
-      },
-    ],
+        includeConsoleLog: false
+      }
+    ]
   ],
   transform: {
-    '^.+\\.[t|j]sx?$': 'babel-jest',
+    '^.+\\.[t|j]sx?$': 'babel-jest'
   },
-  setupFilesAfterEnv: ['<rootDir>/config/setup-jest.js'],
-};
+  setupFilesAfterEnv: ['<rootDir>/config/setup-jest.js']
+}
 
-module.exports = config;
+module.exports = config
