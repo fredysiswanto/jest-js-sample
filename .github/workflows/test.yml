@@ -1,10 +1,9 @@
 name: Run Jest Tests
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-      # - staging
 
 jobs:
   test:

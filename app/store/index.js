@@ -12,7 +12,8 @@ class ApiHelper {
     this.url = url
     this.method = method
     this.reqHeader = reqHeader;
-    (this.reqBody = reqBody), (this.params = params)
+    (this.reqBody = reqBody);
+    (this.params = params)
     this.debug = debug
   }
 

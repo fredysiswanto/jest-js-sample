@@ -1,4 +1,4 @@
-const testData = require('@dataTest/testData.json')
+// const testData = require('@dataTest/testData.json')
 const { getTokenLogin } = require('@srcApi/store/auth')
 const {
   users,
@@ -7,15 +7,15 @@ const {
   deleteUser
 } = require('@srcApi/store/user.js')
 
-describe.skip('Test url api /user', () => {
+describe('Test url api /user', () => {
   let authToken = ''
   beforeAll(async () => {
     const res = await getTokenLogin()
-    console.log(res)
+    // console.log(res)
     authToken = res
   })
   test('Get all users', async () => {
-    console.log(authToken, 'token')
+    // console.log(authToken, 'token')
     const response = await users({
       reqHeader: { token: authToken },
       reqBody: {},

@@ -9,7 +9,7 @@ const url = '/products'
 // GET;
 async function products ({
   reqHeader = {},
-  reqBody = {},
+  // reqBody = {},
   params = '',
   debug = false
 }) {
@@ -22,7 +22,7 @@ async function products ({
 async function addProduct ({
   reqHeader = {},
   reqBody = {},
-  params = '',
+  // params = '',
   debug = false
 }) {
   const headers = prepareRequest({ reqHeader, debug })

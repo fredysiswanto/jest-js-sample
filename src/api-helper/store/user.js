@@ -9,7 +9,7 @@ const url = '/users'
 // GET
 async function users ({
   reqHeader = {},
-  reqBody = {},
+  // reqBody = {},
   params = '',
   debug = false
 }) {
@@ -22,7 +22,6 @@ async function users ({
 async function addUser ({
   reqHeader = {},
   reqBody = {},
-  params = '',
   debug = false
 }) {
   const headers = prepareRequest({ reqHeader, debug })
