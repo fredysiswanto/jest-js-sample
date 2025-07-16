@@ -13,6 +13,7 @@ describe('Test url api /product', () => {
     const res = await getTokenLogin();
     authToken = res;
   });
+
   test('Get all products', async () => {
     const response = await products({
       reqHeader: { token: authToken },
@@ -26,6 +27,7 @@ describe('Test url api /product', () => {
 
     // expect(body.xxx).toBe('xxx');
   });
+
   test('Get detail product', async () => {
     const response = await products({
       reqHeader: { token: authToken },
@@ -41,6 +43,7 @@ describe('Test url api /product', () => {
 
     // expect(body.xxx).toBe('xxx');
   });
+
   test('Add new product', async () => {
     const sendBody = {
       title: 'sepatu',

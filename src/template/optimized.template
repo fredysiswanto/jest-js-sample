@@ -7,8 +7,8 @@ const { prepareRequest, handleResponse } = require('@config/helper');
 
 const url = '/products';
 
-async function sendRequest({ method, reqHeader = {}, reqBody = {}, params = '', debug = false }) {
-  const headers = prepareRequest({ reqHeader, debug });
+async function sendRequest({ method, reqHeader = {}, reqBody = {}, params = '', debug = false, logger = false}) {
+  const headers = prepareRequest({ reqHeader, debug, logger });
   const path = `${url}${params}`;
   const apiRequest = request(BASE_URL)[method](path).set(headers);
 
@@ -18,7 +18,7 @@ async function sendRequest({ method, reqHeader = {}, reqBody = {}, params = '', 
   }
 
   const response = await apiRequest;
-  return handleResponse(response, debug);
+  return handleResponse(response, debug, logger);
 }
 
 const products = (args) => sendRequest({ ...args, method: 'get' });

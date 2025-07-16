@@ -16,7 +16,7 @@ async function products({
 }) {
   const headers = prepareRequest({ reqHeader, debug, logger });
   const response = await request(BASE_URL).get(`${url}${params}`).set(headers);
-  return handleResponse(response, debug, logger);
+  return handleResponse(response, debug);
 }
 
 // POST
@@ -26,7 +26,7 @@ async function addProduct({
   params = '',
   debug = false,
 }) {
-  const headers = prepareRequest({ reqHeader, debug });
+  const headers = prepareRequest({ reqHeader, debug, logger });
   const response = await request(BASE_URL).post(url).set(headers).send(reqBody);
   return handleResponse(response, debug);
 }
@@ -38,12 +38,12 @@ async function updateProduct({
   params = '',
   debug = false,
 }) {
-  const headers = prepareRequest({ reqHeader, debug });
+  const headers = prepareRequest({ reqHeader, debug, logger });
   const response = await request(BASE_URL)
     .put(`${url}${params}`)
     .set(headers)
     .send(reqBody);
-  return handleResponse(response, debug);
+  return handleResponse(response, debug, logger);
 }
 
 // DELETE
@@ -53,11 +53,11 @@ async function deleteProduct({
   params = '',
   debug = false,
 }) {
-  const headers = prepareRequest({ reqHeader, debug });
+  const headers = prepareRequest({ reqHeader, debug, logger });
   const response = await request(BASE_URL)
     .delete(`${url}${params}`)
     .set(headers)
     .send(reqBody);
-  return handleResponse(response, debug);
+  return handleResponse(response, debug, logger);
 }
 module.exports = { products, addProduct, updateProduct, deleteProduct };
