@@ -19,6 +19,7 @@ describe('Test url api /product', () => {
       reqHeader: { token: authToken },
       reqBody: {},
       params: '',
+      logger: true,
     });
     const { body } = response;
     expect(response.status).toBe(200);
@@ -55,6 +56,7 @@ describe('Test url api /product', () => {
     const response = await addProduct({
       reqHeader: { token: authToken },
       reqBody: sendBody,
+      logger: true,
     });
     const { body } = response;
     expect(response.status).toBe(200);
