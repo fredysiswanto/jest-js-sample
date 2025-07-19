@@ -1,0 +1,109 @@
+{
+  "baseUrl": "http://localhost:3600/api/v1",
+  "authenticationPatterns": {
+    "public": [
+      "home/login",
+      "home/register",
+      "home/dishes",
+      "home/restaurants",
+      "home/dish-cat",
+      "home/resto-categories"
+    ],
+    "authenticated": ["resto-admin", "admin", "customer"],
+    "roles": {
+      "admin": ["admin"],
+      "resto_admin": ["resto-admin"],
+      "customer": ["customer"]
+    }
+  },
+  "testScenarios": {
+    "authentication": {
+      "enabled": true,
+      "scenarios": [
+        "valid_credentials",
+        "invalid_email",
+        "invalid_password",
+        "missing_email",
+        "missing_password",
+        "empty_body",
+        "malformed_email",
+        "sql_injection",
+        "xss_attempt",
+        "account_locked"
+      ]
+    },
+    "crud": {
+      "enabled": true,
+      "scenarios": [
+        "valid_data",
+        "missing_required_fields",
+        "invalid_data_format",
+        "invalid_references",
+        "duplicate_data",
+        "unauthorized_access",
+        "insufficient_permissions",
+        "server_error"
+      ]
+    },
+    "retrieval": {
+      "enabled": true,
+      "scenarios": [
+        "successful_retrieval",
+        "with_pagination",
+        "invalid_pagination",
+        "with_filters",
+        "invalid_filters",
+        "with_search",
+        "no_results",
+        "with_sorting",
+        "invalid_sorting",
+        "unauthorized_access"
+      ]
+    }
+  },
+  "responseTemplates": {
+    "success": {
+      "GET": "{ \"message\": \"Success\", \"data\": [...] }",
+      "POST": "{ \"message\": \"Created successfully\", \"data\": {...} }",
+      "PUT": "{ \"message\": \"Updated successfully\", \"data\": {...} }",
+      "DELETE": "{ \"message\": \"Deleted successfully\" }"
+    },
+    "error": {
+      "400": "{ \"error\": \"Bad Request\" }",
+      "401": "{ \"error\": \"Unauthorized\" }",
+      "403": "{ \"error\": \"Forbidden\" }",
+      "404": "{ \"error\": \"Not Found\" }",
+      "409": "{ \"error\": \"Conflict\" }",
+      "500": "{ \"error\": \"Internal Server Error\" }"
+    }
+  },
+  "testData": {
+    "users": {
+      "admin": {
+        "email_address": "admin@foodtrip.com",
+        "password": "Admin@123"
+      },
+      "customer": {
+        "email_address": "customer@foodtrip.com",
+        "password": "Customer@123"
+      },
+      "resto_admin": {
+        "email_address": "resto@foodtrip.com",
+        "password": "RestoAdmin@123"
+      }
+    },
+    "invalid": {
+      "email": "invalid@email.com",
+      "password": "wrongpassword",
+      "malformed_email": "invalidemail",
+      "sql_injection": "' OR '1'='1",
+      "xss_attempt": "<script>alert('XSS')</script>"
+    }
+  },
+  "outputSettings": {
+    "fileNaming": "kebab-case",
+    "includeTimestamp": false,
+    "generateSummary": true,
+    "groupByRole": true
+  }
+}

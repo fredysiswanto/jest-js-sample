@@ -11,7 +11,9 @@
   },
   "scripts": {
     "test": "jest --runInBand --verbose",
-    "clear_jest": "jest --clearCache"
+    "clear_jest": "jest --clearCache",
+    "generate-tests": "node scripts/generate-tests.js",
+    "generate-tests:help": "node scripts/generate-tests.js --help"
   },
   "devDependencies": {
     "@babel/core": "^7.26.7",
