@@ -1,14 +1,13 @@
 const request = require('supertest');
 const { login } = require('@srcApi/store/auth');
+const { BASE_URL } = require('@srcApi/store/config');
 
 describe('Auth', () => {
   test.skip('basic jest', async () => {
-    const response = await request('https://fakestoreapi.com')
-      .post('/auth/login')
-      .send({
-        username: 'mor_2314',
-        password: '83r5^_',
-      });
+    const response = await request(BASE_URL).post('/auth/login').send({
+      username: 'mor_2314',
+      password: '83r5^_',
+    });
     expect(response.status).toBe(200);
     expect(response.body.token).toInclude('eyJhbGciOiJIUzI1NiIsInR');
   });

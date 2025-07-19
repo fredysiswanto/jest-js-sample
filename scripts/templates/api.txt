@@ -10,13 +10,14 @@ async function sendRequest({
   reqBody = {},
   params = '',
   debug = false,
+  logger = false
 }) {
   const supportedMethods = ['get', 'post', 'put', 'delete'];
   if (!supportedMethods.includes(method)) {
     throw new Error(`Unsupported method: ${method}. Supported methods are: ${supportedMethods.join(', ')}`);
   }
 
-  const headers = prepareRequest({ reqHeader, debug });
+  const headers = prepareRequest({ reqHeader, debug, logger });
   const fullUrl = `${url}${params}`;
   const apiRequest = request(BASE_URL)[method](fullUrl).set(headers);
 
@@ -26,7 +27,7 @@ async function sendRequest({
   }
 
   const response = await apiRequest;
-  return handleResponse(response, debug);
+  return handleResponse(response, debug, logger);
 }
 
 // GET
